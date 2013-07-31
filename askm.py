@@ -1,14 +1,21 @@
 #!/usr/bin/python
+"""
+    - Interactive CLI program to practise multiplication tables
+    - Records number of questions, right and wrong in child_name.txt 
+    - Type 999 to quit
+    
+"""
 from random import randint
 import time
 
 def askm():
+
     red = '\033[1;31m'
     black = '\033[1;0m'
-    print "\n",'*'*50
+    print "\n",'*' * 50
     print "Hi, Ready to practise your multiplication tables?"
     print "Type", red, "999", black, "to stop"
-    print "*"*50
+    print "*" * 50
     wrong = 0
     right = 0
     f = open('child_name.txt', 'a')
@@ -28,7 +35,7 @@ def askm():
                 f.write(line)
                 f.write("\n")
                 f.close()
-                print "Bye and come back soon.","\n", "*"*50, "\n"
+                print "Bye and come back soon.","\n", "*" * 50, "\n"
                 break
             elif int(inp) == first * second:
                 right += 1
@@ -37,7 +44,7 @@ def askm():
                 print "The answer is {0:1d}. Have another go!".format(first * second)
                 wrong += 1
         except ValueError:
-            print "Type a whole number like ", red,"4", black, "or", red, "12", black
+            print "Type a whole number like ", red, "4", black, "or", red, "12", black
         
 if __name__ == "__main__":
     askm()
